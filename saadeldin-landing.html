@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saad El-Din Law Firm & Legal Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:   #0d2b1a;
+    --green-dark:   #1a4731;
+    --green-mid:    #245c3f;
+    --green-light:  #2e7a55;
+    --gold:         #c9a84c;
+    --gold-light:   #e0c068;
+    --gold-dark:    #9a7a2a;
+    --cream:        #f8f4ed;
+    --white:        #ffffff;
+    --text-dark:    #1a1a1a;
+    --text-mid:     #3a3a3a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: var(--green-deep);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(13,27,26,0.96);
+    backdrop-filter: blur(12px);
+    padding: 14px 60px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .nav-logo .firm {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .nav-logo .tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 100%;
+    height: 1px;
+    background: var(--gold);
+    transition: right 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { right: 0; }
+  .nav-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    background: var(--gold);
+    padding: 12px 28px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .nav-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(26,71,49,0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      linear-gradient(135deg, var(--green-deep) 0%, #0a2015 100%);
+  }
+  .hero-ornament {
+    position: absolute;
+    right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 600px; height: 600px;
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 50%;
+  }
+  .hero-ornament::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,168,76,0.08);
+    border-radius: 50%;
+  }
+  .hero-ornament::after {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border: 1px solid rgba(201,168,76,0.05);
+    border-radius: 50%;
+  }
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    padding: 140px 60px 100px;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .eyebrow-line {
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+  .eyebrow-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-title .accent { color: var(--gold); font-style: italic; }
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .btn-primary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    background: var(--gold);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+  }
+  .btn-secondary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s;
+  }
+  .btn-secondary:hover { color: var(--gold); }
+  .btn-secondary::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: currentColor;
+    transition: width 0.3s;
+  }
+  .btn-secondary:hover::before { width: 48px; }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 60px; left: 60px;
+    display: flex;
+    gap: 60px;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+  }
+  .hero-right {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 140px 60px 100px;
+    opacity: 0;
+    animation: fadeIn 1.2s 0.5s forwards;
+  }
+  .hero-emblem {
+    position: relative;
+    width: 360px; height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .emblem-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    animation: rotateRing 20s linear infinite;
+  }
+  .emblem-ring::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    background: conic-gradient(transparent 0%, var(--gold) 5%, transparent 10%);
+    opacity: 0.4;
+  }
+  .emblem-ring-2 {
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+    animation: rotateRing 30s linear infinite reverse;
+  }
+  .emblem-inner {
+    position: relative;
+    text-align: center;
+  }
+  .emblem-icon {
+    font-size: 80px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 20px rgba(201,168,76,0.4));
+  }
+  .emblem-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .emblem-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px; right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s 1.4s forwards;
+  }
+  .scroll-hint span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    writing-mode: vertical-lr;
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 80px;
+    margin: 0;
+  }
+  .div-line { flex: 1; height: 1px; background: rgba(201,168,76,0.2); }
+  .div-ornament {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    padding: 120px 80px;
+    background: linear-gradient(to bottom, var(--green-deep), #0f2d1c);
+  }
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .about-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .about-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+  .about-heading em { color: var(--gold); font-style: italic; }
+  .about-text {
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .about-text strong { color: var(--gold); font-weight: 600; }
+  .about-right {
+    position: relative;
+  }
+  .about-card {
+    background: linear-gradient(135deg, rgba(26,71,49,0.5), rgba(13,27,26,0.8));
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 48px;
+    position: relative;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 40px; right: 40px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .about-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 32px;
+  }
+  .about-quote-mark {
+    font-size: 64px;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .about-sig {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .sig-line { width: 32px; height: 1px; background: var(--gold); }
+  .sig-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── SERVICES ─── */
+  .services {
+    padding: 120px 80px;
+    background: #0f2d1c;
+  }
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+  }
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 0 0 24px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+  .section-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .services-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: rgba(26,71,49,0.15);
+    border: 1px solid rgba(201,168,76,0.08);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+    cursor: default;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,71,49,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+    background: rgba(26,71,49,0.35);
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 24px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.2));
+  }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--white);
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-name { color: var(--gold-light); }
+  .service-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .service-link::after { content: '→'; }
+
+  /* ─── WHY US ─── */
+  .why {
+    padding: 120px 80px;
+    background: linear-gradient(to bottom, #0f2d1c, var(--green-deep));
+  }
+  .why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .why-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 16px;
+  }
+  .why-item {
+    padding: 32px;
+    border: 1px solid rgba(201,168,76,0.12);
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .why-item:hover {
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-3px);
+  }
+  .why-item-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .why-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--gold-light);
+  }
+  .why-item-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+  .why-right {}
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .metric-box {
+    background: rgba(26,71,49,0.2);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .metric-unit {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--gold-dark);
+  }
+  .metric-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 10px;
+  }
+
+  /* ─── ALLIANCES ─── */
+  .alliances {
+    padding: 80px;
+    background: var(--green-dark);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .alliances-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+  .alliances-text { flex: 1; }
+  .alliances-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .alliances-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+  .alliances-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .alliance-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 12px 24px;
+    position: relative;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    padding: 120px 80px;
+    background: var(--green-deep);
+  }
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .contact-info {}
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .contact-detail:last-child { border-bottom: none; }
+  .detail-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    filter: drop-shadow(0 0 4px rgba(201,168,76,0.3));
+  }
+  .detail-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .detail-value {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* FORM */
+  .contact-form {
+    background: rgba(26,71,49,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 56px;
+    position: relative;
+  }
+  .contact-form::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 60px; right: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .form-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    color: var(--white);
+    padding: 14px 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    appearance: none;
+  }
+  .form-group select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+  .form-group select option { background: #1a4731; color: var(--white); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(255,255,255,0.06);
+  }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+  }
+  .form-submit {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    background: var(--gold);
+    border: none;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    margin-top: 8px;
+  }
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.25);
+  }
+  .form-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin-top: 16px;
+  }
+  /* Success state */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .form-success.show { display: block; }
+  .success-icon { font-size: 48px; margin-bottom: 16px; }
+  .success-msg {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .success-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--green-deep);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    padding: 60px 80px 40px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .footer-brand .firm-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    max-width: 280px;
+  }
+  .footer-col-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.2);
+  }
+  .footer-bottom-links {
+    display: flex;
+    gap: 32px;
+  }
+  .footer-bottom-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-bottom-links a:hover { color: var(--gold); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes rotateRing {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes scrollPulse {
+    0%,100% { opacity: 0.3; transform: scaleY(1); }
+    50%      { opacity: 1;   transform: scaleY(1.3); }
+  }
+
+  /* Intersection Observer reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ─── MOBILE HAMBURGER (basic) ─── */
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-toggle span { width: 24px; height: 1px; background: var(--gold); transition: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 20px 32px; }
+    nav.scrolled { padding: 14px 32px; }
+    .nav-links { gap: 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 140px 40px 80px; }
+    .hero-stats { left: 40px; gap: 40px; }
+    .about { padding: 80px 40px; }
+    .about-inner { grid-template-columns: 1fr; gap: 60px; }
+    .services { padding: 80px 40px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why { padding: 80px 40px; }
+    .why-inner { grid-template-columns: 1fr; gap: 60px; }
+    .alliances { padding: 60px 40px; }
+    .alliances-inner { flex-direction: column; gap: 40px; }
+    .alliances-badges { justify-content: flex-start; }
+    .contact { padding: 80px 40px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+    .contact-form { padding: 40px; }
+    footer { padding: 60px 40px 40px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 640px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .why-features { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <span class="firm">Saad El-Din</span>
+    <span class="tagline">Law Firm & Legal Consultancy</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book Consultation</a>
+  <div class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Cairo, Egypt · Est. Since Decades</span>
+    </div>
+    <h1 class="hero-title">
+      Where Law Meets<br>
+      <span class="accent">Vision &amp; Power</span>
+    </h1>
+    <p class="hero-desc">
+      A comprehensive legal institution combining Egyptian roots with international reach. Strategic partners for corporations, investors, and individuals navigating complex legal landscapes.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Schedule Consultation</a>
+      <a href="#services" class="btn-secondary">Our Expertise</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-emblem">
+      <div class="emblem-ring"></div>
+      <div class="emblem-ring-2"></div>
+      <div class="emblem-inner">
+        <div class="emblem-icon">⚖️</div>
+        <div class="emblem-name">Saad El-Din</div>
+        <div class="emblem-sub">Law Firm · Cairo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">100<span style="font-size:22px;color:var(--gold-dark)">+</span></div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">400<span style="font-size:22px;color:var(--gold-dark)">+</span></div>
+      <div class="stat-label">Cases Launched</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">98<span style="font-size:22px;color:var(--gold-dark)">%</span></div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-ornament"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left reveal">
+      <div class="about-label">About the Firm</div>
+      <h2 class="about-heading">More Than a<br>Law Practice —<br><em>An Institution</em></h2>
+      <p class="about-text">
+        <strong>Saad El-Din Law Firm &amp; Legal Consultancy</strong> was established to embody vision, professionalism, and a global mindset. From its headquarters in Cairo, the firm extends its expertise to regional and international clients.
+      </p>
+      <p class="about-text">
+        Founded by Counselor Ahmed Saad El-Din, a distinguished name in the Egyptian and Arab legal landscape, the firm has built its reputation through decades of complex litigation, international arbitration, and cross-border corporate transactions.
+      </p>
+    </div>
+    <div class="about-right reveal reveal-delay-2">
+      <div class="about-card">
+        <span class="about-quote-mark">"</span>
+        <p class="about-quote">Law is not merely a means of resolving disputes — it is a true tool for development and growth.</p>
+        <div class="about-sig">
+          <div class="sig-line"></div>
+          <span class="sig-name">Counselor Ahmed Saad El-Din · Founder &amp; Executive Chairman</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-ornament"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="services" id="services">
+  <div class="section-header reveal">
+    <div class="section-label">Our Expertise</div>
+    <h2 class="section-title">Comprehensive <em>Legal Services</em><br>Tailored to Your Needs</h2>
+    <p class="section-desc">From complex international arbitration to domestic litigation — we cover every dimension of modern legal practice.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-icon">⚖️</span>
+      <h3 class="service-name">Litigation</h3>
+      <p class="service-desc">Representing clients across all tiers of the Egyptian judiciary — Civil, Criminal, Economic, Administrative, Sports, and Supreme Courts.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-icon">🏛️</span>
+      <h3 class="service-name">Corporate &amp; Investment</h3>
+      <p class="service-desc">Company formation, M&amp;A, restructuring, IPOs, banking &amp; finance, and capital markets — strategic legal support for businesses at every stage.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <span class="service-icon">🌐</span>
+      <h3 class="service-name">International Arbitration</h3>
+      <p class="service-desc">Experienced representation before ICC, LCIA, DIAC, ICSID, and CAS — navigating cross-border disputes with precision and strategy.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-icon">💡</span>
+      <h3 class="service-name">Intellectual Property</h3>
+      <p class="service-desc">Trademark registration, patents, copyrights, and trade secret protection — safeguarding your intangible assets locally and internationally.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-icon">🏗️</span>
+      <h3 class="service-name">Real Estate &amp; Construction</h3>
+      <p class="service-desc">Comprehensive services spanning property transactions, FIDIC contracts, infrastructure projects, and real estate dispute resolution.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <span class="service-icon">⚡</span>
+      <h3 class="service-name">Energy, Mining &amp; Aviation</h3>
+      <p class="service-desc">Specialized legal counsel for oil &amp; gas, renewable energy, mining licenses, and international aviation compliance and disputes.</p>
+      <a href="#contact" class="service-link">Consult Now</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-ornament"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- ═══ WHY US ═══ -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div>
+      <div class="about-label reveal" style="margin-bottom:24px">Why Choose Us</div>
+      <h2 class="section-title reveal" style="text-align:left;margin-bottom:0">Your Partner in<br><em>Every Challenge</em></h2>
+      <div class="why-features">
+        <div class="why-item reveal reveal-delay-1">
+          <span class="why-item-icon">🎯</span>
+          <h4 class="why-item-title">Strategic Thinking</h4>
+          <p class="why-item-text">Not just defense — we design winning strategies before stepping into any court or arbitration.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-2">
+          <span class="why-item-icon">🌍</span>
+          <h4 class="why-item-title">Global Reach</h4>
+          <p class="why-item-text">UAE branch and international alliances bridge Cairo with global financial and legal hubs.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-3">
+          <span class="why-item-icon">📚</span>
+          <h4 class="why-item-title">Deep Expertise</h4>
+          <p class="why-item-text">Multi-lingual team specialized across 20+ practice areas with hands-on international experience.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-4">
+          <span class="why-item-icon">🤝</span>
+          <h4 class="why-item-title">True Partnership</h4>
+          <p class="why-item-text">We see law as a mission. Your success is our success — we invest fully in every client relationship.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-right reveal reveal-delay-2">
+      <div class="about-label">Proven Track Record</div>
+      <p class="section-desc" style="text-align:left;margin-bottom:0">Numbers that reflect years of dedication, landmark victories, and trusted client relationships built across Egypt and the region.</p>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="metric-num">8<span class="metric-unit">+</span></div>
+          <div class="metric-label">Years of Experience</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">100<span class="metric-unit">+</span></div>
+          <div class="metric-label">Happy Clients</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">400<span class="metric-unit">+</span></div>
+          <div class="metric-label">Cases Launched</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">98<span class="metric-unit">%</span></div>
+          <div class="metric-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALLIANCES ═══ -->
+<section class="alliances reveal">
+  <div class="alliances-inner">
+    <div class="alliances-text">
+      <div class="about-label" style="margin-bottom:16px">International Presence</div>
+      <h3 class="alliances-heading">A Bridge Between<br><em style="color:var(--gold)">East &amp; West</em></h3>
+      <p class="alliances-desc">With a branch in the UAE and alliances spanning European, American, and Gulf law firms — we offer seamless cross-border representation.</p>
+    </div>
+    <div class="alliances-badges">
+      <span class="alliance-badge">ICC</span>
+      <span class="alliance-badge">LCIA</span>
+      <span class="alliance-badge">DIAC</span>
+      <span class="alliance-badge">ICSID</span>
+      <span class="alliance-badge">CAS</span>
+      <span class="alliance-badge">UAE Branch</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">
+  <div class="div-line"></div>
+  <div class="div-ornament"></div>
+  <div class="div-line"></div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="section-label" style="justify-content:flex-start">Get in Touch</div>
+      <h2 class="section-title" style="text-align:left;margin-bottom:32px">
+        Let's Build Your<br><em>Legal Strategy</em>
+      </h2>
+      <p class="section-desc" style="text-align:left;margin-bottom:48px">
+        Our team responds within 24 hours. Consultations available in Arabic and English.
+      </p>
+      <div class="contact-detail">
+        <span class="detail-icon">📍</span>
+        <div>
+          <div class="detail-label">Head Office</div>
+          <div class="detail-value">201 – Centrada Mall – Juhayna Square<br>Block E, 2nd Floor – 6th of October City<br>Giza, Egypt</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="detail-icon">📞</span>
+        <div>
+          <div class="detail-label">Phone</div>
+          <div class="detail-value">+20 261 101 110</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="detail-icon">✉️</span>
+        <div>
+          <div class="detail-label">Email</div>
+          <div class="detail-value">info@saadeldin-lawfirm.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <span class="detail-icon">🌐</span>
+        <div>
+          <div class="detail-label">Website</div>
+          <div class="detail-value">saadeldin-lawfirm.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-2">
+      <h3 class="form-title">Request a Consultation</h3>
+      <p class="form-sub">We'll respond within 24 hours</p>
+
+      <div id="formContent">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="fullName" placeholder="Ahmed Ibrahim" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" id="email" placeholder="ahmed@company.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="+20 100 000 0000">
+          </div>
+          <div class="form-group">
+            <label>Company / Organization</label>
+            <input type="text" id="company" placeholder="Your Company Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Practice Area *</label>
+          <select id="practiceArea" required>
+            <option value="" disabled selected>Select a practice area</option>
+            <option>Litigation – Civil / Criminal Courts</option>
+            <option>Litigation – Economic / Administrative Courts</option>
+            <option>International Arbitration</option>
+            <option>Corporate &amp; Investment</option>
+            <option>Mergers &amp; Acquisitions</option>
+            <option>Banking &amp; Finance</option>
+            <option>Intellectual Property</option>
+            <option>Real Estate &amp; Development</option>
+            <option>Energy / Oil &amp; Gas / Mining</option>
+            <option>Sports Law &amp; Player Contracts</option>
+            <option>Maritime &amp; Aviation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell us about your matter</label>
+          <textarea id="message" placeholder="Briefly describe your legal situation or inquiry..."></textarea>
+        </div>
+        <button type="button" class="form-submit" id="submitBtn">Send Message →</button>
+        <p class="form-note">Your information is strictly confidential and protected by attorney-client privilege.</p>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <div class="success-msg">Message Received</div>
+        <p class="success-sub">Thank you for reaching out. A member of our team will contact you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="firm-name">Saad El-Din</span>
+      <p>A comprehensive legal institution bridging Cairo and global financial hubs — your strategic partner in law, investment, and growth.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Practice Areas</div>
+      <ul class="footer-links">
+        <li><a href="#services">Litigation</a></li>
+        <li><a href="#services">Corporate &amp; Investment</a></li>
+        <li><a href="#services">International Arbitration</a></li>
+        <li><a href="#services">Intellectual Property</a></li>
+        <li><a href="#services">Real Estate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">More Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Energy &amp; Mining</a></li>
+        <li><a href="#services">Banking &amp; Finance</a></li>
+        <li><a href="#services">Sports Law</a></li>
+        <li><a href="#services">Maritime &amp; Aviation</a></li>
+        <li><a href="#services">Media &amp; Entertainment</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@saadeldin-lawfirm.com">Email Us</a></li>
+        <li><a href="tel:+20261101110">+20 261 101 110</a></li>
+        <li><a href="#contact">Book Consultation</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Saad El-Din Law Firm &amp; Legal Consultancy. All rights reserved.</span>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── NAV SCROLL ───
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ─── INTERSECTION OBSERVER (reveal) ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ─── FORM SUBMIT ───
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const area  = document.getElementById('practiceArea').value;
+
+    if (!name || !email || !area) {
+      const empty = [
+        !name  && document.getElementById('fullName'),
+        !email && document.getElementById('email'),
+        !area  && document.getElementById('practiceArea'),
+      ].filter(Boolean);
+      empty.forEach(el => {
+        el.style.borderColor = 'rgba(220,60,60,0.6)';
+        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      });
+      return;
+    }
+
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+
+  // ─── MOBILE NAV TOGGLE ───
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    const cta   = document.querySelector('.nav-cta');
+    if (links) {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? '' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '70px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'rgba(13,27,26,0.98)';
+      links.style.padding = '24px 32px';
+      links.style.gap = '20px';
+      links.style.borderBottom = '1px solid rgba(201,168,76,0.2)';
+      if (open) { links.style.display = 'none'; }
+    }
+  });
+
+  // ─── SMOOTH ACTIVE NAV ───
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold)'
+        : '';
+    });
+  });
+</script>
+</body>
+</html>
