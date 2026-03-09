@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Roboto", sans-serif;
   background: var(--green-deep);
   color: var(--white);
   overflow-x: hidden;
@@ -69,7 +69,7 @@ nav.scrolled {
   line-height: 1;
 }
 .nav-logo .firm {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -77,7 +77,7 @@ nav.scrolled {
   text-transform: uppercase;
 }
 .nav-logo .tagline {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
@@ -90,7 +90,7 @@ nav.scrolled {
   list-style: none;
 }
 .nav-links a {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -116,7 +116,7 @@ nav.scrolled {
   right: 0;
 }
 .nav-cta {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -202,14 +202,14 @@ nav.scrolled {
   background: var(--gold);
 }
 .eyebrow-text {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
 }
 .hero-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: clamp(42px, 5.5vw, 72px);
   font-weight: 900;
   line-height: 1.05;
@@ -239,7 +239,7 @@ nav.scrolled {
   animation: fadeUp 0.8s 0.8s forwards;
 }
 .btn-primary {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -257,7 +257,7 @@ nav.scrolled {
   box-shadow: 0 12px 40px rgba(201, 168, 76, 0.3);
 }
 .btn-secondary {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -294,14 +294,14 @@ nav.scrolled {
 .stat-item {
 }
 .stat-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
 .stat-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -358,14 +358,14 @@ nav.scrolled {
   filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.4));
 }
 .emblem-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 13px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
 }
 .emblem-sub {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 8px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -387,7 +387,7 @@ nav.scrolled {
   animation: fadeIn 1s 1.4s forwards;
 }
 .scroll-hint span {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 8px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -441,7 +441,7 @@ section {
   align-items: center;
 }
 .about-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -458,7 +458,7 @@ section {
   background: var(--gold);
 }
 .about-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: clamp(32px, 3.5vw, 48px);
   font-weight: 700;
   line-height: 1.2;
@@ -502,7 +502,7 @@ section {
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 .about-quote {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 22px;
   font-style: italic;
   line-height: 1.6;
@@ -528,7 +528,7 @@ section {
   background: var(--gold);
 }
 .sig-name {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -546,7 +546,7 @@ section {
   margin: 0 auto 80px;
 }
 .section-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -565,7 +565,7 @@ section {
   background: var(--gold);
 }
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 700;
   line-height: 1.25;
@@ -641,7 +641,7 @@ section {
   filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.2));
 }
 .service-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -662,7 +662,7 @@ section {
   align-items: center;
   gap: 8px;
   margin-top: 24px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -717,7 +717,7 @@ section {
   display: block;
 }
 .why-item-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -744,19 +744,19 @@ section {
   text-align: center;
 }
 .metric-num {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 48px;
   font-weight: 900;
   color: var(--gold);
   line-height: 1;
 }
 .metric-unit {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 28px;
   color: var(--gold-dark);
 }
 .metric-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -782,7 +782,7 @@ section {
   flex: 1;
 }
 .alliances-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
@@ -802,7 +802,7 @@ section {
   justify-content: flex-end;
 }
 .alliance-badge {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -846,7 +846,7 @@ section {
   filter: drop-shadow(0 0 4px rgba(201, 168, 76, 0.3));
 }
 .detail-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -877,7 +877,7 @@ section {
   background: linear-gradient(to right, transparent, var(--gold), transparent);
 }
 .form-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -898,7 +898,7 @@ section {
 }
 .form-group label {
   display: block;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -913,7 +913,7 @@ section {
   border: 1px solid rgba(201, 168, 76, 0.15);
   color: var(--white);
   padding: 14px 18px;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   outline: none;
   transition:
@@ -949,7 +949,7 @@ section {
 }
 .form-submit {
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -968,7 +968,7 @@ section {
   box-shadow: 0 12px 40px rgba(201, 168, 76, 0.25);
 }
 .form-note {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.25);
@@ -989,7 +989,7 @@ section {
   margin-bottom: 16px;
 }
 .success-msg {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-size: 22px;
   color: var(--gold);
   margin-bottom: 10px;
@@ -1015,7 +1015,7 @@ footer {
   margin-bottom: 60px;
 }
 .footer-brand .firm-name {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -1032,7 +1032,7 @@ footer {
   max-width: 280px;
 }
 .footer-col-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1065,7 +1065,7 @@ footer {
   align-items: center;
 }
 .footer-copy {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.2);
@@ -1075,7 +1075,7 @@ footer {
   gap: 32px;
 }
 .footer-bottom-links a {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
