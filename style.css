@@ -19,10 +19,10 @@ body.light-theme {
   --green-dark: #e6ede8; /* section alt bg */
   --green-mid: #d8e4db; /* card / border fill */
   --green-light: #c8dace; /* hover tints */
-  --gold: #8a6a1e; /* slightly deeper gold for contrast on light */
+  --gold: #2e7a55; /* slightly deeper gold for contrast on light */
   --gold-light: #b8922e;
-  --gold-dark: #6a5018;
-  --cream: #1c2b22; /* text: rich dark green-black instead of pure black */
+  --gold-dark: #245c3f;
+  --cream: #020302; /* text: rich dark green-black instead of pure black */
   --white: #1c2b22;
   --text-dark: #f4f7f5;
   --text-mid: #e6ede8;
@@ -430,7 +430,7 @@ body.light-theme .nav-logo .tagline {
 .emblem-ring {
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(201, 168, 76, 0.3);
+  border: 1px solid rgba(76, 201, 120, 0.3);
   border-radius: 50%;
   animation: rotateRing 20s linear infinite;
 }
@@ -445,7 +445,7 @@ body.light-theme .nav-logo .tagline {
 .emblem-ring-2 {
   position: absolute;
   inset: 30px;
-  border: 1px solid rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(76, 201, 130, 0.15);
   border-radius: 50%;
   animation: rotateRing 30s linear infinite reverse;
 }
