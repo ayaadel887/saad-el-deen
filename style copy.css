@@ -128,7 +128,7 @@ nav.scrolled {
   line-height: 1;
 }
 .nav-logo .firm {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 1px;
@@ -332,7 +332,7 @@ body.dark-theme .hero-bg {
 }
 
 .hero-title {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(40px, 5.5vw, 70px);
   font-weight: 900;
   line-height: 1.06;
@@ -435,7 +435,7 @@ body.dark-theme .hero-bg {
   filter: drop-shadow(0 0 16px rgba(201, 168, 76, 0.35));
 }
 .emblem-name {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 14px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -536,7 +536,7 @@ section {
   background: var(--gold);
 }
 .about-heading {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(30px, 3.2vw, 46px);
   font-weight: 700;
   line-height: 1.22;
@@ -586,7 +586,7 @@ section {
   );
 }
 .about-quote {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 20px;
   font-style: italic;
   line-height: 1.65;
@@ -650,7 +650,7 @@ section {
   background: var(--gold);
 }
 .section-title {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(26px, 2.8vw, 40px);
   font-weight: 700;
   line-height: 1.25;
@@ -718,7 +718,7 @@ section {
   display: block;
 }
 .service-name {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -766,49 +766,79 @@ section {
 .why-inner {
   max-width: 1160px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 90px;
-  align-items: start;
 }
+
+/* Centered header — mirrors .section-header */
+.why-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 72px;
+}
+
+/* 4-card grid filling full width */
 .why-features {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-top: 16px;
 }
+
 .why-item {
-  padding: 28px;
+  padding: 36px 28px;
   border: 1px solid var(--border);
   background: var(--bg-card);
   border-radius: 2px;
   position: relative;
+  overflow: hidden;
   transition:
     border-color 0.3s,
     transform 0.3s,
     box-shadow 0.3s;
   box-shadow: var(--shadow-card);
+  text-align: center;
+}
+/* gold top bar on hover — same language as service cards */
+.why-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--gold-dark),
+    var(--gold-accent),
+    var(--gold-dark)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
 }
 .why-item:hover {
   border-color: var(--border-gold);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
+.why-item:hover::after {
+  transform: scaleX(1);
+}
+
 .why-item-icon {
-  font-size: 26px;
-  margin-bottom: 14px;
+  font-size: 36px;
+  margin-bottom: 18px;
   display: block;
+  filter: drop-shadow(0 2px 6px rgba(201, 168, 76, 0.2));
 }
 .why-item-title {
-  font-family: "Roboto", serif;
-  font-size: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--gold);
 }
 .why-item-text {
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--text-secondary);
   font-weight: 300;
 }
@@ -881,7 +911,7 @@ section {
   );
 }
 .form-title {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 6px;
@@ -937,7 +967,7 @@ footer {
   margin-bottom: 52px;
 }
 .footer-brand .firm-name {
-  font-family: "Roboto", serif;
+  font-family: "Playfair Display", serif;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -1141,15 +1171,8 @@ body.rtl .contact-info .section-desc {
   text-align: right;
 }
 body.rtl .why .section-title,
-body.rtl .why .about-label,
 body.rtl .why-item {
   text-align: right;
-}
-body.rtl .about-label {
-  justify-content: flex-end;
-}
-body.rtl .why .about-label {
-  justify-content: flex-start;
 }
 body.rtl .service-link::after {
   content: "←";
@@ -1199,9 +1222,8 @@ body.rtl .emblem-sub {
   .why {
     padding: 80px 40px;
   }
-  .why-inner {
-    grid-template-columns: 1fr;
-    gap: 52px;
+  .why-features {
+    grid-template-columns: repeat(2, 1fr);
   }
   .contact {
     padding: 80px 40px;
