@@ -124,6 +124,17 @@ nav.scrolled {
 
 .nav-logo {
   display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-brand-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-logo-text {
+  display: flex;
   flex-direction: column;
   line-height: 1;
 }
@@ -204,7 +215,7 @@ nav.scrolled {
   background: transparent;
   border: 1px solid var(--border-gold);
   color: var(--gold);
-  font-family: "DM Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 10px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -433,6 +444,7 @@ body.dark-theme .hero-bg {
   font-size: 72px;
   margin-bottom: 14px;
   filter: drop-shadow(0 0 16px rgba(201, 168, 76, 0.35));
+  color: var(--gold);
 }
 .emblem-name {
   font-family: "Roboto", serif;
@@ -716,6 +728,7 @@ section {
   font-size: 32px;
   margin-bottom: 20px;
   display: block;
+  color: var(--gold);
 }
 .service-name {
   font-family: "Roboto", serif;
@@ -856,6 +869,15 @@ section {
   color: var(--text-secondary);
   line-height: 1.6;
   font-weight: 300;
+}
+.detail-value a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.detail-value a:hover {
+  color: var(--gold-light);
+  text-decoration: underline;
 }
 
 .contact-form {
@@ -1261,6 +1283,9 @@ body.rtl .emblem-sub {
   }
 
   /* Firm name smaller */
+  .nav-brand-img {
+    height: 36px;
+  }
   .nav-logo .firm {
     font-size: 14px;
     letter-spacing: 0.5px;
