@@ -124,17 +124,6 @@ nav.scrolled {
 
 .nav-logo {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-.nav-brand-img {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-}
-.nav-logo-text {
-  display: flex;
   flex-direction: column;
   line-height: 1;
 }
@@ -444,7 +433,6 @@ body.dark-theme .hero-bg {
   font-size: 72px;
   margin-bottom: 14px;
   filter: drop-shadow(0 0 16px rgba(201, 168, 76, 0.35));
-  color: var(--gold);
 }
 .emblem-name {
   font-family: "Roboto", serif;
@@ -728,7 +716,6 @@ section {
   font-size: 32px;
   margin-bottom: 20px;
   display: block;
-  color: var(--gold);
 }
 .service-name {
   font-family: "Roboto", serif;
@@ -1283,9 +1270,6 @@ body.rtl .emblem-sub {
   }
 
   /* Firm name smaller */
-  .nav-brand-img {
-    height: 36px;
-  }
   .nav-logo .firm {
     font-size: 14px;
     letter-spacing: 0.5px;
